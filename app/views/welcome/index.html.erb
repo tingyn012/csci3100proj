@@ -1,0 +1,22 @@
+yo man, this is the index file.
+
+<p>Account:</p>
+<% if student_signed_in? %>
+  <li>
+  <%= link_to('Logout', destroy_student_session_path, :method => :delete) %>
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Login', new_student_session_path)  %>  
+  </li>
+<% end %>
+
+<p>
+  All groups: <%= link_to 'Groups', {action: :index, controller: :groups} %>
+</p>
+<p>
+  All courses: <%= link_to 'Course', {action: :index, controller: :courses} %>
+</p>
+<p>
+  All messages(only visible to your account): <%= link_to 'Message', {action: :index, controller: :messages} %>
+</p>

@@ -1,0 +1,11 @@
+<p>This a group in course <%= @group.course.course_code %>, id is <%= @group.id %> </p>
+
+<p>Students in this group:</p>
+<ul>
+  <% @group.students.each do |student| %>
+    <li><%= link_to student.email, student %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>

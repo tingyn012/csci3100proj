@@ -7,17 +7,24 @@
 
 development:
   adapter: postgresql
-  database: my_database_development
+  database: csci
   pool: 5
   timeout: 5000
+  username: postgres
+  password: a
+  
 test:
   adapter: postgresql
-  database: my_database_test
+  database: csci
   pool: 5
   timeout: 5000
+  username: postgres
+  password: a
 
 production:
   adapter: postgresql
-  database: my_database_production
+  database: csci
   pool: 5
   timeout: 5000
+  username: postgres
+  password: a

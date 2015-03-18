@@ -1,0 +1,2 @@
+<p>This is the profile page of user <%= @student.email %></p>
+<p><%= link_to "message him", controller: "messages", action: "new", id: @student.id %></p>

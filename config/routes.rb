@@ -1,9 +1,26 @@
 Rails.application.routes.draw do
+
+  resources :groups
+  get  'groups/:id/join' => 'groups#join'
+  post 'groups/:id/join' => 'groups#add_student'
+  
+  resources :students
+  devise_for :students, controllers: {
+    sessions: 'students/sessions'
+  }
+  
+  resources :courses
+  get  'courses/:id/join' => 'courses#join'
+  post 'courses/:id/join' => 'courses#add_student'
+  
+  get  'students/:id/message' => 'messages#new'
+  resources :messages
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
