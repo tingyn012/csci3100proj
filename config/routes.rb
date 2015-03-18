@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   get  'groups/:id/join' => 'groups#join'
   post 'groups/:id/join' => 'groups#add_student'
   
-  resources :students
   devise_for :students, controllers: {
     sessions: 'students/sessions'
   }
+  resources :students
   
   resources :courses
   get  'courses/:id/join' => 'courses#join'
