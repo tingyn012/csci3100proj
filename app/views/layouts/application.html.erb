@@ -10,20 +10,27 @@
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
   <div class="left">
-    <% if student_signed_in? %>
-      <p>Account: <%= current_student.student_id %></p>
-      <p>
-        <%= link_to 'See all messages', {action: :index, controller: :messages} %>
-      </p>
-      <p>
-        <%= link_to('Logout', destroy_student_session_path, :method => :delete) %>
-      </p>
-    <% else %>
-      <p>Account: Not logged in</p>
-      <%= link_to('Login', new_student_session_path)  %>  
-    <% end %>
+    <div class="account box">
+      <% if student_signed_in? %>
+        <p>Account: <%= link_to current_student.student_id, current_student %></p>
+        <p>
+          <%= link_to 'See all messages', {action: :index, controller: "/messages"} %>
+        </p>
+        <p>
+          <%= link_to('Edit', {action: :edit, controller: "/students/registrations"}) %>
+        </p>
+        <p>
+          <%= link_to('Logout', destroy_student_session_path, :method => :delete) %>
+        </p>
+      <% else %>
+        <p>Account: Not logged in</p>
+        <%= link_to('Login', new_student_session_path)  %>  
+      <% end %>
+    </div>
   </div>
-<%= yield %>
+  <div class="right">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

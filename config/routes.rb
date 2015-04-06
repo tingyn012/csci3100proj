@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   post 'groups/:id/join' => 'groups#add_student'
   
   devise_for :students, controllers: {
-    sessions: 'students/sessions'
+    sessions: 'students/sessions',
+    registrations: "students/registrations"
   }
   resources :students
   

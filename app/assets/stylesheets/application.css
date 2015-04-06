@@ -13,3 +13,39 @@
  *= require_tree .
  *= require_self
  */
+
+.left {
+    width: 28%;
+    float:left;
+    margin-right: 2%;
+}
+.right {
+    width: 70%;
+    float: left;
+}
+
+@media (max-width: 600px) {
+    .left {
+        width: 100%;
+    }
+    .right {
+        width: 100%;
+    }
+}
+
+.box {
+    border: solid 2px #333388;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.box .title {
+    background-color: #ccccff;
+    font-size: 30px;
+    line-height: 100%;
+}
+
+.box .all {
+    background-color: #ccccff;
+    font-size: 100%;
+}
