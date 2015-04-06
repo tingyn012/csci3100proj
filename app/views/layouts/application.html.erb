@@ -7,8 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <div class="left">
+    <% if student_signed_in? %>
+      <p>Account: <%= current_student.student_id %></p>
+      <p>
+        <%= link_to 'See all messages', {action: :index, controller: :messages} %>
+      </p>
+      <p>
+        <%= link_to('Logout', destroy_student_session_path, :method => :delete) %>
+      </p>
+    <% else %>
+      <p>Account: Not logged in</p>
+      <%= link_to('Login', new_student_session_path)  %>  
+    <% end %>
+  </div>
 <%= yield %>
 
 </body>

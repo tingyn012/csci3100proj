@@ -1,0 +1,14 @@
+<% title ||= "courses" %>
+<div class="courses">
+    <div class="title"><%= title %></div>
+    <% @courses.each do |course| %>
+        <div>
+            <%= link_to course do %>
+                <%= course.course_code %>
+            <% end %>
+        </div>
+    <% end %>
+    <div class="all">
+        <%= link_to 'See all courses', {action: :index, controller: :courses} %>
+    </div>
+</div>

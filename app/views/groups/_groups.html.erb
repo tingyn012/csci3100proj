@@ -1,0 +1,14 @@
+<% title ||= "groups" %>
+<div class="groups">
+    <div class="title"><%= title  %></div>
+    <% @groups.each do |group| %>
+        <div>
+            <%= link_to group do %>
+                Group<%= group.id %> in <%= group.course.course_code %>
+            <% end %>
+        </div>
+    <% end %>
+    <div class="all">
+        <%= link_to 'See all groups', {action: :index, controller: :groups} %>
+    </div>
+</div>

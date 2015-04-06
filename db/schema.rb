@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150318174009) do
+ActiveRecord::Schema.define(version: 20150406202430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(version: 20150318174009) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "courses_students", id: false, force: true do |t|
+    t.integer "student_id"
+    t.integer "course_id"
+  end
+
+  add_index "courses_students", ["course_id", "student_id"], name: "index_courses_students_on_course_id_and_student_id", using: :btree
+  add_index "courses_students", ["student_id", "course_id"], name: "index_courses_students_on_student_id_and_course_id", using: :btree
 
   create_table "groups", force: true do |t|
     t.datetime "created_at"
@@ -66,10 +74,8 @@ ActiveRecord::Schema.define(version: 20150318174009) do
     t.integer  "student_id"
     t.string   "contact"
     t.text     "intro"
-    t.integer  "course_id"
   end
 
-  add_index "students", ["course_id"], name: "index_students_on_course_id", using: :btree
   add_index "students", ["email"], name: "index_students_on_email", unique: true, using: :btree
   add_index "students", ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true, using: :btree
 
